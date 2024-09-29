@@ -37,7 +37,7 @@ void delete_node_at_any_position(){
             i++;
         }
         nextnode = temp->next;
-        temp->next = temp;
+        temp->next = nextnode->next;
         free(nextnode);
     }
 }
