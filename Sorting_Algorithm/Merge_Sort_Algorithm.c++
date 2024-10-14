@@ -1,3 +1,10 @@
+/* time complexity and space complexity of this algorihtm
+    time complexiyt:
+        worst case = O(n log n)
+        Best case = O(n log n)
+        avearage case = O(n log n)
+    space complexity = O(n)
+*/
 #include<iostream>
 using namespace std;
 // a function to merge two half into  a sorted data
