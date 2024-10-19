@@ -16,10 +16,10 @@ Node *insert(Node *root,int data){
         return newnode;
     }
     if(data < root->data){
-        root->left=insert(root->left, data);
+        root->left=insert(root->left, data); // recursive call
     }
     else if(data > root->data){
-        root->right=insert(root,data);
+        root->right=insert(root->right,data); // recursive call
     }
 return root;
 
@@ -38,15 +38,23 @@ Node *create_BST(){
     return root;
 
 }
-Node *BST_Search(Node *root){
+Node *BST_Search(Node *root){        // function for search a data from BST
     int item;
-    cout<<"Enter your searching data: ";
+    cout<<"Enter your searching data: ";  
+    cin>>item;
     Node *temp = root;
     while(temp!=NULL){
         if(item==temp->data){
             return temp;
         }
+        if(item < temp->data){
+            temp = temp->left;
+        }
+        else if(item > temp->data){
+            temp= temp->right;
+        }
     }
+    return temp;
 
 
 }
@@ -61,17 +69,23 @@ void inorder_Travers(Node *root){       // Function for Traverse BST // if I Tra
 }
 
 int main(){
-    Node *BSTroot;
+    Node *BSTroot,*findNode;
     BSTroot=create_BST();
     cout<<"BST After inorder_traverse: "<<endl;
     inorder_Travers(BSTroot);
     while(1){
         int n;
-        cout<<"Press 1 for Search a Data: "<<endl;
+        cout<<"\nPress 1 for Search a Data: "<<endl;
         cout<<"Press any key  for exit: "<<endl;
         cin>>n;
         if(n==1){
-            BST_Search(BSTroot);
+           findNode= BST_Search(BSTroot);
+           if(findNode!=NULL){
+            cout<<"Item is found: "<<endl;
+           }
+           else{
+            cout<<"Item isn't found: "<<endl;
+           }
         }
         else{
             break;
