@@ -10,7 +10,8 @@ class Node{
 Node *insert(Node *root,int data){       // Function for Insert Node into It's Position 
     Node *newnode;
     if(root==NULL){
-        newnode = new Node ();         // Dynamically Memory allocate using new();
+        newnode = new Node ();  // Dynamically Memory allocate using new();
+        newnode->data = data;      
         newnode->left=NULL;
         newnode->right=NULL;
         return newnode;
